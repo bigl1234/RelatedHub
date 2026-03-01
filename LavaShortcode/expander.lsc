@@ -1,0 +1,10 @@
+{
+  "Guid": "5f595a54-72b1-4682-85c7-90f8cf456fa7",
+  "Name": "Mobile App Expander",
+  "EnabledLavaCommands": "RockEntity",
+  "TagName": "expander",
+  "TagType": 2,
+  "Description": "Creates an expander component within the mobile app shell. Takes parameters for expander title, content (XAML code), and background color.",
+  "Documentation": "<p>{[ expander title:'Announcements' backgroundcolor:'#ededed' textcolor:'#5C686A'  ]}\n</p><p>&nbsp; &nbsp; &lt;StackLayout&gt;\n</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;Label Text=\"This is an item\" /&gt;\n</p><p>&nbsp; &nbsp; &lt;/StackLayout&gt;\n</p><p>{[ endexpander ]}\n</p><p><br></p><p>\n</p><p>\n</p><p>\n</p><p>\n</p><p>\n</p>",
+  "Markup": "{% assign iconColor = backgroundcolor | Darken:'10%' %}\n\n\n<Rock:StyledView\n    BackgroundColor=\"{{backgroundcolor}}\"\n    CornerRadius=\"12,12,0,0\"\n    StyleClass=\"p-16\"\n    Margin=\"0,-2,0,0\" >\n    {% if expandable == 'true' %}\n    <Rock:Expander\n        ExpandAnimationEasing=\"SinInOut\"\n        CollapseAnimationEasing=\"SinInOut\"\n        ExpandAnimationLength=\"500\"\n        CollapseAnimationLength=\"500\">\n        <Rock:Expander.Header>\n            <Rock:ResponsiveLayout\n                StyleClass=\"pb-4\">\n                <Rock:ResponsiveColumn\n                    ExtraSmall=\"6\">\n                    <Label Text=\"{{title}}\" TextColor=\"{{textcolor}}\" StyleClass=\"h4\" />\n                </Rock:ResponsiveColumn>\n                <Rock:ResponsiveColumn\n                    StyleClass=\"text-right\"\n                    ExtraSmall=\"6\">\n                    <Rock:Icon\n                        FontSize=\"28\"\n                        IconClass=\"caret-down\"\n                        TextColor=\"{{iconColor}}\" />\n                </Rock:ResponsiveColumn>\n            </Rock:ResponsiveLayout>\n        </Rock:Expander.Header>\n        {{blockContent}}\n    </Rock:Expander>\n    \n    {% else %}\n    <StackLayout>\n        <Label Text=\"{{title}}\" TextColor=\"{{textcolor}}\" StyleClass=\"h4\" />\n        {{blockContent}}\n    </StackLayout>\n    {% endif %}\n</Rock:StyledView>\n"
+}
