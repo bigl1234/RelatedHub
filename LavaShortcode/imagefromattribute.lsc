@@ -1,0 +1,10 @@
+{
+  "Guid": "38174fea-950f-4111-8840-53cc5a438c5b",
+  "Name": "BEMA | Image URL from Attribute ID",
+  "EnabledLavaCommands": "RockEntity",
+  "TagName": "imagefromattribute",
+  "TagType": 1,
+  "Description": "Creates an image url given an attribute ID. For use in the mobile app to quickly output image urls from attributes added to the Mobile App's Rock site.",
+  "Documentation": "<p>{[ imagefromattribute attributeid:'12345' ]}</p>",
+  "Markup": "{%- attributevalue where:'AttributeId == {{ attributeid }}' -%}\n    {%- assign value = attributevalue.Value -%}\n    {%- if value != '' and value -%}\n        {%- assign imageUrl = 'Global' | Attribute:'PublicApplicationRoot' | Append:'GetImage.ashx?Guid=' | Append: value | Append:'&w=800' | Escape -%}\n    {%- endif -%}\n{%- endattributevalue -%}\n{{ imageUrl }}"
+}
