@@ -1,0 +1,10 @@
+{
+  "Guid": "1307452f-446e-485b-a949-7cdd6df75931",
+  "Name": "Currency",
+  "EnabledLavaCommands": "",
+  "TagName": "currency",
+  "TagType": 1,
+  "Description": "Displays a currency control.",
+  "Documentation": "<p>This control displays a currency input.</p>\r\n\r\n<h5>Example Usage</h5>\r\n<pre>{[ currency label:'Currency' value:'100.00' isrequired:'true' ]}</pre>\r\n\r\n<h5>Parameter List</h5>\r\n<p>This control supports the following parameters:</p>\r\n<ul>\r\n    <li><strong>label</strong> (Currency) - The label to display above the control.</li><li><b>showlabel </b>(true) - Whether to display the label.</li>\r\n    <li><strong>value</strong> - The value to initially set the control to.</li><li><b>isrequired </b>(false) - Establishes whether making a selection is necessary.</li>\r\n    <li><strong>validationmessage</strong> (Please specify an amount.) - Message to display when the value is not valid.</li>\r\n    <li><strong>additionalattributes</strong> -  Additional attributes to include on the input control.</li>\r\n</ul>",
+  "Markup": "{% assign isrequired = isrequired | AsBoolean %}\r\n\r\n{[ rockcontrol id:'rc-{{ '' | UniqueIdentifier }}' showlabel:'{{ showlabel }}' label:'{{ label }}' controltype:'currency-box' isrequired:'{{ isrequired }}' validationmessage:'{{ validationmessage }}' ]}\r\n\r\n    <div class=\"control-wrapper\">\r\n        <div class=\"input-group \">\r\n        \t<span class=\"input-group-addon\">{{ 'Global' | Attribute:'CurrencySymbol' }}</span>\r\n        \t<input type=\"number\" class=\"form-control\" inputmode=\"decimal\" step=\"0.01\" value=\"{{ value }}\" {% if isrequired == true %}required{% endif %} {{ additionalattributes }}>\r\n        </div>\r\n    </div>\r\n\r\n{[ endrockcontrol ]}"
+}
