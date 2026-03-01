@@ -1,0 +1,10 @@
+{
+  "Guid": "2d6b04c4-a54a-4f3f-98e4-657f8ac882d9",
+  "Name": "Range Slider",
+  "EnabledLavaCommands": "",
+  "TagName": "rangeslider",
+  "TagType": 1,
+  "Description": "Displays a range slider control.",
+  "Documentation": "<p>This control displays a range slider</p>\r\n\r\n<h5>Example Usage</h5>\r\n<pre>{[ rangeslider label:'Range Slider' min:'0' max:'100' step:'.1' value:'10' isrequired:'false']}</pre>\r\n\r\n<h5>Parameter List</h5>\r\n<p>This control supports the following parameters:</p>\r\n<ul>\r\n    <li><strong>label</strong> (Range Slider) - The label to display above the control.</li><li><b>showlabel </b>(true) - Whether to display label.</li>\r\n    <li><strong>min</strong> (0) - The minimum amount on slider</li>\r\n    <li><strong>max</strong> (100) - The maximum amount on slider</li>\r\n    <li><strong>step</strong> (1) - The amount of increment at a time</li>\r\n    <li><strong>value</strong>(0) - The amount to initially set the control to.</li><li><b>isrequired </b>(false) - Require the range slider to have a value</li>\r\n    <li><strong>validationmessage </strong>(Please select a value.) - Message to display when the value is not valid.</li>\r\n\r\n</ul>",
+  "Markup": "{[ rockcontrol id:'rc-{{ '' | UniqueIdentifier }}' label:'{{ label }}' showlabel:'{{ showlabel }}' controltype:'range-slider' isrequired:'{{ isrequired }} validationmessage:'{{ validationmessage }}']}\r\n    <input type=\"text\" id='{{ id }}' />\r\n    <script>\r\n        Rock.controls.rangeSlider.initialize(\r\n            {\r\n                controlId: '{{ id }}',\r\n                min: '{{ min }}',\r\n                max: '{{ max }}',\r\n                step: '{{ step }}',\r\n                from: '{{ value }}',\r\n            });\r\n    </script>\r\n{[ endrockcontrol ]}"
+}
