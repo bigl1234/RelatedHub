@@ -1,0 +1,7 @@
+{%- attributevalue where:'AttributeId == {{ attributeid }}' -%}
+    {%- assign value = attributevalue.Value -%}
+    {%- if value != '' and value -%}
+        {%- assign imageUrl = 'Global' | Attribute:'PublicApplicationRoot' | Append:'GetImage.ashx?Guid=' | Append: value | Append:'&w=800' | Escape -%}
+    {%- endif -%}
+{%- endattributevalue -%}
+{{ imageUrl }}
